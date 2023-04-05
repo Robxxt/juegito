@@ -1,7 +1,8 @@
 NAME		:= so_long
 MLXLIB		:= ./lib/MLX42
 LIBFT		:= ./lib/libft
-SRC			:= src/so_long.c
+SRC			:=	src/so_long.c\
+				src/file_checker.c
 OBJ			:= $(SRC:.c=.o)
 CFLAGS		:= -Wall -Werror -Wextra
 GLFWFLAGS	:= -framework Cocoa -framework OpenGL -framework IOKit

@@ -5,4 +5,7 @@
 #include "../lib/libft/libft.h"
 #include <fcntl.h>
 
+void	handle_error(char *str);
+int	file_checker(char *filename);
+
 #endif

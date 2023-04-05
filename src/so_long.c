@@ -13,6 +13,6 @@ int	main(int argc, char **argv)
 {
 	if (argc != 2)
 		handle_error("Invalid number of arguments!");
-	printf("%s", argv[1]);
+	file_checker(argv[1]);
 	return (0);
 }
