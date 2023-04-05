@@ -5,7 +5,16 @@
 #include "../lib/libft/libft.h"
 #include <fcntl.h>
 
+typedef struct s_map
+{
+	char	**matrix;
+	int		width;
+	int 	height;
+	int		p_row;
+	int 	p_col;
+} t_map;
+
 void	handle_error(char *str);
-int	file_checker(char *filename);
+int		file_checker(char *filename);
 
 #endif
