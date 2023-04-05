@@ -3,5 +3,6 @@
 
 #include "../lib/MLX42/include/MLX42/MLX42.h"
 #include "../lib/libft/libft.h"
+#include <fcntl.h>
 
 #endif
