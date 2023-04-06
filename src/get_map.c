@@ -25,10 +25,14 @@ static void check_valid_characters(char *str, char *s)
 	}
 }
 
-static void get_dimensions(int fd, t_map *map)
+static void get_dimensions(char *filename, t_map *map)
 {
 	char	*tmp;
+	int		fd;
 
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		handle_error("Can't open the file!");
 	tmp = get_next_line(fd);
 	map->width = get_strlen(tmp);
 	map->height = 0;
@@ -44,13 +48,37 @@ static void get_dimensions(int fd, t_map *map)
 		handle_error("el mapap esta m4l");
 }
 
-t_map	*get_map(int fd)
+char	**get_matrix(char *filename, t_map *map)
+{
+	char	**map_matrix;
+	int		i;
+	int		fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		handle_error("Can't open the file!");
+
+	map_matrix = malloc((map->height + 1) * sizeof(char *));
+	if (!map_matrix)
+		return (NULL);
+	i = -1;
+	while (++i < map->height)
+	{
+		map_matrix[i] = get_next_line(fd);
+	}
+	map_matrix[i] = NULL;
+	close(fd);
+	return (map_matrix);
+}
+
+t_map	*get_map(char *filename)
 {
 	t_map	*map;
 	
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	get_dimensions(fd, map);
+	get_dimensions(filename, map);
+	map->matrix = get_matrix(filename, map);
 	return (map);
 }

@@ -12,13 +12,12 @@ void	handle_error(char *str)
 int	main(int argc, char **argv)
 {
 	t_map	*map;
-	int		fd;
 
 	if (argc != 2)
 		handle_error("Invalid number of arguments!");
-	fd = file_checker(argv[1]);
-	map = get_map(fd);
-	printf("%d %d\n", map->height, map->width);
-	close(fd);
+	file_checker(argv[1]);
+	map = get_map(argv[1]);
+	for (int i = 0; i < map->height; i++)
+		printf("%s", map->matrix[i]);
 	return (0);
 }

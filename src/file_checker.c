@@ -16,11 +16,7 @@ static void	valid_file_extension(char *filename, char *extension)
 		handle_error("Invalid file extension!");
 }
 
-/*
-If the file extension is valid & the filename exists
-returns the fd. Else exits with error message.
-*/
-int	file_checker(char *filename)
+void	file_checker(char *filename)
 {
 	int	fd;
 
@@ -28,5 +24,5 @@ int	file_checker(char *filename)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		handle_error("Can't open the file!");
-	return (fd);
+	close(fd);
 }

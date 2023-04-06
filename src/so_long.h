@@ -16,7 +16,7 @@ typedef struct s_map
 } t_map;
 
 void	handle_error(char *str);
-int		file_checker(char *filename);
-t_map	*get_map(int fd);
+void	file_checker(char *filename);
+t_map	*get_map(char *filename);
 
 #endif
