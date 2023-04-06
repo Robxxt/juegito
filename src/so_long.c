@@ -11,8 +11,13 @@ void	handle_error(char *str)
 
 int	main(int argc, char **argv)
 {
+	t_map	*map;
+	int		fd;
+
 	if (argc != 2)
 		handle_error("Invalid number of arguments!");
-	file_checker(argv[1]);
+	fd = file_checker(argv[1]);
+	map = get_map(fd);
+	printf("%d %d\n", map->height, map->width);
 	return (0);
 }
