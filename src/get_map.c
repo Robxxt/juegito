@@ -10,6 +10,21 @@ static int	get_strlen(const char *s)
 	return (len);
 }
 
+static void check_valid_characters(char *str, char *s)
+{
+	int		i;
+	int 	len;
+
+	i 	= 0;
+	len = get_strlen(str);
+	while (i < len)
+	{
+		if (!ft_strchr(s, str[i]))
+			handle_error("Invalid Character!");
+		i++;
+	}
+}
+
 static void get_dimensions(int fd, t_map *map)
 {
 	char	*tmp;
@@ -19,6 +34,7 @@ static void get_dimensions(int fd, t_map *map)
 	map->height = 0;
 	while (tmp)
 	{
+		check_valid_characters(tmp, "01CEP");
 		if (map->width != get_strlen(tmp))
 			handle_error("el mapap esta m4l");
 		map->height++;
@@ -32,11 +48,9 @@ t_map	*get_map(int fd)
 {
 	t_map	*map;
 	
-
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
 	get_dimensions(fd, map);
-	
 	return (map);
 }
