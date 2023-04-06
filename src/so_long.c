@@ -19,5 +19,6 @@ int	main(int argc, char **argv)
 	fd = file_checker(argv[1]);
 	map = get_map(fd);
 	printf("%d %d\n", map->height, map->width);
+	close(fd);
 	return (0);
 }
