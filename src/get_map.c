@@ -42,6 +42,7 @@ static void get_dimensions(char *filename, t_map *map)
 		if (map->width != get_strlen(tmp))
 			handle_error("Invalid map dimesions");
 		map->height++;
+		free(tmp);
 		tmp = get_next_line(fd);
 	}
 	if (map->height < 3 || map->width < 3)
