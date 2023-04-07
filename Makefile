@@ -14,8 +14,23 @@ MLX_HEADER	:= -Iinclude -lglfw -L"/Users/rdragan/homebrew/Cellar/glfw/3.3.8/lib/
 
 all: $(MLXLIB) $(NAME) 
 
+LSAN = LeakSanitizer
+LSANLIB = /LeakSanitizer/liblsan.a
+LSANLFLAGS := -LLeakSanitizer -llsan -lc++
+
+lsan: CFLAGS += -ILeakSanitizer -Wno-gnu-include-next
+lsan: LINK_FLAGS += $(LSANLFLAGS)
+lsan: fclean $(LSANLIB)
+lsan: all
+
+$(LSAN):
+	git clone https://github.com/mhahnFr/LeakSanitizer.git
+
+$(LSANLIB): $(LSAN)
+	$(MAKE) -C LeakSanitizer
+
 $(NAME): build_mlx build_libft $(OBJ) $(LIBFT)
-	@cc $(OBJ) $(LIBFT)/libft.a $(MLXLIB)/build/libmlx42.a $(MLX_HEADER) $(GLFWFLAGS) -o $(NAME)
+	@cc $(OBJ) $(LIBFT)/libft.a $(MLXLIB)/build/libmlx42.a $(LINK_FLAGS) $(MLX_HEADER) $(GLFWFLAGS) -o $(NAME)
 
 $(LIBFT):
 	echo HOLA
@@ -37,5 +52,6 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
+
 
 .PHONY: so_long, build_mlx, build_libft, all, clean, fclean, re
