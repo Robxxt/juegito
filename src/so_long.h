@@ -11,9 +11,13 @@ typedef struct s_map
 	char	**matrix;
 	int		width;
 	int 	height;
+	int		main_chars;
 	int		p_row;
 	int 	p_col;
 	int		comestibles;
+	int		exits;
+	int		e_row;
+	int		e_col;
 } t_map;
 
 void	handle_error(char *str);
