@@ -62,10 +62,10 @@ void	check_perimeter(t_map *map)
 	}
 	if (map->main_chars != 1 || map->exits != 1 || map->comestibles < 1)
 		handle_error("Invalid number of either main_chars, exits or comestibles!");
-	printf("main_chars: %d\texits: %d\tcomestibles: %d\n", map->main_chars, map->exits, map->comestibles);
 }
 
-void	check_map(t_map *map)
+void	check_map(t_map *map, char *filename)
 {
 	check_perimeter(map);
+	verify_valid_path(map, filename);
 }

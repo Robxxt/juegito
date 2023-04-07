@@ -23,6 +23,8 @@ typedef struct s_map
 void	handle_error(char *str);
 void	file_checker(char *filename);
 t_map	*get_map(char *filename);
-void	check_map(t_map *map);
+void	check_map(t_map *map, char *filename);
+void	verify_valid_path(t_map *map, char *filename);
+int		is_perimeter(int y, int x, int map_height, int map_width);
 
 #endif
