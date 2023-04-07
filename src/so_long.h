@@ -13,6 +13,7 @@ typedef struct s_map
 	int 	height;
 	int		p_row;
 	int 	p_col;
+	int		comestibles;
 } t_map;
 
 void	handle_error(char *str);
