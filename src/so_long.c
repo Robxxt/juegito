@@ -18,6 +18,7 @@ void	display_window(t_map *map)
 	mlx = mlx_init(map->width * 32, map->height * 32, "HI THERE!", true);
 	if (!mlx)
 		handle_error("Failed to create the window!");
+	mlx_key_hook(mlx, &get_keystroke_hook, map);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 }

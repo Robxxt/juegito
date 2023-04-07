@@ -26,5 +26,6 @@ t_map	*get_map(char *filename);
 void	check_map(t_map *map, char *filename);
 void	verify_valid_path(t_map *map, char *filename);
 int		is_perimeter(int y, int x, int map_height, int map_width);
+void	get_keystroke_hook(mlx_key_data_t keydata, void *param);
 
 #endif
