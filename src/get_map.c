@@ -40,12 +40,12 @@ static void get_dimensions(char *filename, t_map *map)
 	{
 		check_valid_characters(tmp, "01CEP");
 		if (map->width != get_strlen(tmp))
-			handle_error("el mapap esta m4l");
+			handle_error("Invalid map dimesions");
 		map->height++;
 		tmp = get_next_line(fd);
 	}
 	if (map->height < 3 || map->width < 3)
-		handle_error("el mapap esta m4l");
+		handle_error("Invalid map dimesions");
 }
 
 char	**get_matrix(char *filename, t_map *map)
