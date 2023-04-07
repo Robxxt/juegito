@@ -9,6 +9,19 @@ void	handle_error(char *str)
 	exit(1);
 }
 
+
+
+void	display_window(t_map *map)
+{
+	mlx_t	*mlx;
+
+	mlx = mlx_init(map->width * 32, map->height * 32, "HI THERE!", true);
+	if (!mlx)
+		handle_error("Failed to create the window!");
+	mlx_loop(mlx);
+	mlx_terminate(mlx);
+}
+
 int	main(int argc, char **argv)
 {
 	t_map	*map;
@@ -21,5 +34,6 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < map->height; i++)
 		printf("%s", map->matrix[i]);
 	printf("\nmain_chars: %d\texits: %d\tcomestibles: %d\n", map->main_chars, map->exits, map->comestibles);
+	display_window(map);
 	return (0);
 }
