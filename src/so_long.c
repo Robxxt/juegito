@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 		handle_error("Invalid number of arguments!");
 	file_checker(argv[1]);
 	map = get_map(argv[1]);
+	check_map(map);
 	for (int i = 0; i < map->height; i++)
 		printf("%s", map->matrix[i]);
 	return (0);
