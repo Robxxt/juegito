@@ -11,6 +11,11 @@ void	handle_error(char *str)
 
 void	free_t_map(t_map *map)
 {
+	int	i;
+
+	i = -1;
+	while (map->matrix[++i])
+		free(map->matrix[i]);
 	free(map->matrix);
 	free(map);
 }
