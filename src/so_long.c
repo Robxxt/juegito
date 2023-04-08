@@ -9,16 +9,17 @@ void	handle_error(char *str)
 	exit(1);
 }
 
-
-
 void	display_window(t_map *map)
 {
 	mlx_t	*mlx;
+	t_keyhook	hook_data;
 
+	hook_data.map = map;
 	mlx = mlx_init(map->width * 32, map->height * 32, "HI THERE!", true);
 	if (!mlx)
 		handle_error("Failed to create the window!");
-	mlx_key_hook(mlx, &get_keystroke_hook, map);
+	hook_data.mlx = mlx;
+	mlx_key_hook(mlx, &get_keystroke_hook, &hook_data);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 }
@@ -35,6 +36,7 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < map->height; i++)
 		printf("%s", map->matrix[i]);
 	printf("\nmain_chars: %d\texits: %d\tcomestibles: %d\n", map->main_chars, map->exits, map->comestibles);
+	free(map);
 	display_window(map);
 	return (0);
 }
