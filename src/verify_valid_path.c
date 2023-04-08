@@ -49,4 +49,5 @@ void	verify_valid_path(t_map *map, char *filename)
 				handle_error("Either the comestible or exit is not reachable!");
 		}
 	}
+	free(map_copy);
 }
