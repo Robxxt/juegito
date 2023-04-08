@@ -9,6 +9,12 @@ void	handle_error(char *str)
 	exit(1);
 }
 
+void	free_t_map(t_map *map)
+{
+	free(map->matrix);
+	free(map);
+}
+
 void	display_window(t_map *map)
 {
 	mlx_t	*mlx;
@@ -36,7 +42,7 @@ int	main(int argc, char **argv)
 	for (int i = 0; i < map->height; i++)
 		printf("%s", map->matrix[i]);
 	printf("\nmain_chars: %d\texits: %d\tcomestibles: %d\n", map->main_chars, map->exits, map->comestibles);
-	free(map);
+	free_t_map(map);
 	display_window(map);
 	return (0);
 }
