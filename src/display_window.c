@@ -6,11 +6,23 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 23:48:03 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:37:21 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 19:51:40 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	free_img(mlx_t *mlx, t_image *img, t_texture *texture)
+{
+	mlx_delete_image(mlx, img->comestible);
+	mlx_delete_image(mlx, img->main_char);
+	mlx_delete_image(mlx, img->exit);
+	mlx_delete_image(mlx, img->wall);
+	mlx_delete_texture(texture->comestible);
+	mlx_delete_texture(texture->main_char);
+	mlx_delete_texture(texture->exit);
+	mlx_delete_texture(texture->wall);
+}
 
 void	display_map(t_map *map, mlx_t *mlx, t_image *img)
 {
@@ -55,5 +67,6 @@ void	display_window(t_map *map)
 	mlx_key_hook(mlx, &get_keystroke_hook, &hook_data);
 	display_map(map, mlx, &image);
 	mlx_loop(mlx);
+	free_img(mlx, &image, &texture);
 	mlx_terminate(mlx);
 }
