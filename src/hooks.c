@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:22:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 19:33:54 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 19:43:36 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, t_image *img, int dir)
 
 	x = map->p_col;
 	y = map->p_row;
-	if (map->matrix[y][x+dir] != '1')
+	if (map->matrix[y][x + dir] != '1')
 	{
 		mlx_image_to_window(mlx, img->floor,
 			map->p_col * 32, map->p_row * 32);
-		map->p_col = x+dir;
+		map->p_col = x + dir;
 		mlx_image_to_window(mlx, img->main_char,
 			map->p_col * 32, map->p_row * 32);
 		if (dir == -1)
@@ -44,7 +44,8 @@ void	move_char_vertically(mlx_t *mlx, t_map *map, t_image *img, int dir)
 	{
 		mlx_image_to_window(mlx, img->floor, map->p_col * 32, map->p_row * 32);
 		map->p_row = y + dir;
-		mlx_image_to_window(mlx, img->main_char, map->p_col * 32, map->p_row * 32);
+		mlx_image_to_window(mlx, img->main_char,
+			map->p_col * 32, map->p_row * 32);
 		if (dir == -1)
 			puts("UP^");
 		else
@@ -69,6 +70,5 @@ void	get_keystroke_hook(mlx_key_data_t keydata, void *param)
 			move_char_horizontally(data->mlx, data->map, data->img, -1);
 		if (keydata.key == MLX_KEY_D)
 			move_char_horizontally(data->mlx, data->map, data->img, 1);
-
 	}
 }
