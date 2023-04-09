@@ -53,5 +53,6 @@ int		is_perimeter(int y, int x, int map_height, int map_width);
 void	get_keystroke_hook(mlx_key_data_t keydata, void *param);
 void	display_window(t_map *map);
 void	get_textrues(t_texture *texture);
+void	get_images(t_image *image, t_texture *texture, mlx_t *mlx);
 
 #endif
