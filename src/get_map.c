@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:32:44 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:38:55 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 19:40:20 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ static void	get_dimensions(char *filename, t_map *map)
 	if (fd == -1)
 		handle_error("Can't open the file!");
 	tmp = get_next_line(fd);
+	if (!tmp)
+		handle_error("Invalid map!");
 	map->width = get_strlen(tmp);
 	map->height = 0;
 	while (tmp)
