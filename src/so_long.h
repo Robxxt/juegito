@@ -31,7 +31,7 @@ typedef struct	s_texture
 	mlx_texture_t	*main_char;
 	mlx_texture_t	*comestible;
 	mlx_texture_t	*exit;
-	mlx_texture_t	*walls;
+	mlx_texture_t	*wall;
 	mlx_texture_t	*floor;
 } t_texture;
 
@@ -40,7 +40,7 @@ typedef struct	s_image
 	mlx_image_t	*main_char;
 	mlx_image_t	*comestible;
 	mlx_image_t	*exit;
-	mlx_image_t	*walls;
+	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 } t_image;
 
