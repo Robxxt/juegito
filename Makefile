@@ -6,7 +6,9 @@ SRC			:=	src/so_long.c\
 				src/get_map.c\
 				src/check_map.c\
 				src/verify_valid_path.c\
-				src/hooks.c
+				src/hooks.c\
+				src/display_window.c\
+				src/get_assets.c
 OBJ			:= $(SRC:.c=.o)
 CFLAGS		:= -Wall -Werror -Wextra
 GLFWFLAGS	:= -framework Cocoa -framework OpenGL -framework IOKit
