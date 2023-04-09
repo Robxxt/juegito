@@ -35,6 +35,14 @@ typedef struct	s_texture
 	mlx_texture_t	*floor;
 } t_texture;
 
+typedef struct	s_image
+{
+	mlx_image_t	*main_char;
+	mlx_image_t	*comestible;
+	mlx_image_t	*exit;
+	mlx_image_t	*walls;
+	mlx_image_t	*floor;
+} t_image;
 
 void	handle_error(char *str);
 void	file_checker(char *filename);
@@ -44,5 +52,6 @@ void	verify_valid_path(t_map *map, char *filename);
 int		is_perimeter(int y, int x, int map_height, int map_width);
 void	get_keystroke_hook(mlx_key_data_t keydata, void *param);
 void	display_window(t_map *map);
+void	get_textrues(t_texture *texture);
 
 #endif
