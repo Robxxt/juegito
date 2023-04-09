@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   verify_valid_path.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/09 18:45:32 by rdragan           #+#    #+#             */
+/*   Updated: 2023/04/09 18:46:06 by rdragan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	flood_fill(char **map, int x, int y)
@@ -14,7 +26,7 @@ void	flood_fill(char **map, int x, int y)
 static char	**copy_map_matirx(char *filename, int height)
 {
 	char	**cpy;
-	int 	i;
+	int		i;
 	int		fd;
 
 	fd = open(filename, O_RDONLY);
@@ -45,7 +57,8 @@ void	verify_valid_path(t_map *map, char *filename)
 		j = -1;
 		while (map_copy[i][++j])
 		{
-			if (map_copy[i][j] != 'F' && map_copy[i][j] != '1' && map_copy[i][j] != '\n')
+			if (map_copy[i][j] != 'F' && map_copy[i][j] != '1'
+				&& map_copy[i][j] != '\n')
 				handle_error("Either the comestible or exit is not reachable!");
 		}
 	}
@@ -53,5 +66,4 @@ void	verify_valid_path(t_map *map, char *filename)
 	while (map_copy[++i])
 		free(map_copy[i]);
 	free(map_copy);
-
 }
