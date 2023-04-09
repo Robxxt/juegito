@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 23:48:03 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 12:07:57 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:28:43 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	display_map(t_map *map, mlx_t *mlx, t_image *img)
 				mlx_image_to_window(mlx, img->comestible,  j * 32, i * 32);
 		}
 	}
-	printf("\nDimesions > Height: %d\twdith: %d\n", map->height, map->width);
 }
 
 void	display_window(t_map *map)
@@ -46,15 +45,14 @@ void	display_window(t_map *map)
 	t_image		image;
 
 	hook_data.map = map;
-	mlx = mlx_init(map->width * 32, map->height * 32, "HI THERE!", true);
+	mlx = mlx_init(map->width * 32, map->height * 32, "Eat the World!", true);
 	if (!mlx)
 		handle_error("Failed to create the window!");
-	hook_data.mlx = mlx;
-	mlx_key_hook(mlx, &get_keystroke_hook, &hook_data);
-	printf("\nHeight: %d\twdith: %d\n", map->height, map->width);
-	
 	get_textrues(&texture);
 	get_images(&image, &texture, mlx);
+	hook_data.mlx = mlx;
+	hook_data.img = &image;
+	mlx_key_hook(mlx, &get_keystroke_hook, &hook_data);
 	display_map(map, mlx, &image);
 	mlx_loop(mlx);
 	mlx_terminate(mlx);

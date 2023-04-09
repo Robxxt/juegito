@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/09 18:22:58 by rdragan           #+#    #+#             */
+/*   Updated: 2023/04/09 18:32:51 by rdragan          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 void	handle_error(char *str)
@@ -29,10 +40,6 @@ int	main(int argc, char **argv)
 	file_checker(argv[1]);
 	map = get_map(argv[1]);
 	check_map(map, argv[1]);
-	for (int i = 0; i < map->height; i++)
-		printf("%s", map->matrix[i]);
-	printf("char_x: %d\t char_y:%d\n", map->p_col, map->p_row);
-	printf("\nmain_chars: %d\texits: %d\tcomestibles: %d\n", map->main_chars, map->exits, map->comestibles);
 	display_window(map);
 	free_t_map(map);
 	return (0);

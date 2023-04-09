@@ -20,12 +20,6 @@ typedef struct s_map
 	int		e_col;
 } t_map;
 
-typedef struct s_keyhook
-{
-	t_map	*map;
-	mlx_t	*mlx;
-} t_keyhook;
-
 typedef struct	s_texture
 {
 	mlx_texture_t	*main_char;
@@ -43,6 +37,13 @@ typedef struct	s_image
 	mlx_image_t	*wall;
 	mlx_image_t	*floor;
 } t_image;
+
+typedef struct s_keyhook
+{
+	t_map	*map;
+	mlx_t	*mlx;
+	t_image	*img;
+} t_keyhook;
 
 void	handle_error(char *str);
 void	file_checker(char *filename);
