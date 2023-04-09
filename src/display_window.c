@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 23:48:03 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:28:43 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:37:21 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	display_map(t_map *map, mlx_t *mlx, t_image *img)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < map->height)
@@ -24,22 +24,22 @@ void	display_map(t_map *map, mlx_t *mlx, t_image *img)
 		while (++j < map->width)
 		{
 			if (map->matrix[i][j] == '1')
-				mlx_image_to_window(mlx, img->wall,  j * 32, i * 32);
+				mlx_image_to_window(mlx, img->wall, j * 32, i * 32);
 			if (map->matrix[i][j] == '0')
-				mlx_image_to_window(mlx, img->floor,  j * 32, i * 32);
+				mlx_image_to_window(mlx, img->floor, j * 32, i * 32);
 			if (map->matrix[i][j] == 'P')
-				mlx_image_to_window(mlx, img->main_char,  j * 32, i * 32);
+				mlx_image_to_window(mlx, img->main_char, j * 32, i * 32);
 			if (map->matrix[i][j] == 'E')
-				mlx_image_to_window(mlx, img->exit,  j * 32, i * 32);
+				mlx_image_to_window(mlx, img->exit, j * 32, i * 32);
 			if (map->matrix[i][j] == 'C')
-				mlx_image_to_window(mlx, img->comestible,  j * 32, i * 32);
+				mlx_image_to_window(mlx, img->comestible, j * 32, i * 32);
 		}
 	}
 }
 
 void	display_window(t_map *map)
 {
-	mlx_t	*mlx;
+	mlx_t		*mlx;
 	t_keyhook	hook_data;
 	t_texture	texture;
 	t_image		image;

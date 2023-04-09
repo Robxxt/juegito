@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:32:44 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:32:45 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:38:55 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static int	get_strlen(const char *s)
 	return (len);
 }
 
-static void check_valid_characters(char *str, char *s)
+static void	check_valid_characters(char *str, char *s)
 {
-	int		i;
-	int 	len;
+	int	i;
+	int	len;
 
-	i 	= 0;
+	i = 0;
 	len = get_strlen(str);
 	while (i < len)
 	{
@@ -37,7 +37,7 @@ static void check_valid_characters(char *str, char *s)
 	}
 }
 
-static void get_dimensions(char *filename, t_map *map)
+static void	get_dimensions(char *filename, t_map *map)
 {
 	char	*tmp;
 	int		fd;
@@ -70,7 +70,6 @@ char	**get_matrix(char *filename, t_map *map)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		handle_error("Can't open the file!");
-
 	map_matrix = malloc((map->height + 1) * sizeof(char *));
 	if (!map_matrix)
 		return (NULL);
@@ -87,7 +86,7 @@ char	**get_matrix(char *filename, t_map *map)
 t_map	*get_map(char *filename)
 {
 	t_map	*map;
-	
+
 	map = (t_map *)malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);

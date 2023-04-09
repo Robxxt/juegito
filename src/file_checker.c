@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:32:33 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:32:34 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:37:43 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	valid_file_extension(char *filename, char *extension)
 {
 	int	f_len;
 	int	e_len;
-	
+
 	f_len = (int)ft_strlen(filename);
 	e_len = (int)ft_strlen(extension);
 	while (f_len >= e_len && e_len > 0)

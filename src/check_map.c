@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:32:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:32:27 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:35:44 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,16 @@ void	check_perimeter(t_map *map)
 		j = -1;
 		while (++j < map->width)
 		{
-			if (is_perimeter(i, j, map->height, map->width) == 0 && map->matrix[i][j] != '1')
+			if (is_perimeter(i, j, map->height, map->width) == 0
+				&& map->matrix[i][j] != '1')
 				handle_error("Invalid map. Invalid wall perimeter!");
 			else
 				count_chars(map, i, j);
 		}
 	}
-	if (map->main_chars != 1 || map->exits != 1 || map->comestibles < 1)
-		handle_error("Invalid number of either main_chars, exits or comestibles!");
+	if (map->main_chars != 1 || map->exits != 1
+		|| map->comestibles < 1)
+		handle_error("Invalid number of main_chars, exits or comestibles!");
 }
 
 void	check_map(t_map *map, char *filename)

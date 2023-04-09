@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:22:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:31:01 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/09 18:41:56 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,24 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, keys_t key, t_image *img)
 	{
 		if (map->matrix[y][x-1] != '1')
 		{
-			mlx_image_to_window(mlx, img->floor, map->p_col * 32, map->p_row * 32);
+			mlx_image_to_window(mlx, img->floor,
+				map->p_col * 32, map->p_row * 32);
 			map->p_col = x-1;
 			puts("<LEFT");
-			mlx_image_to_window(mlx, img->main_char, map->p_col * 32, map->p_row * 32);
+			mlx_image_to_window(mlx, img->main_char,
+				map->p_col * 32, map->p_row * 32);
 		}
 	}
 	if (key == MLX_KEY_D)
 	{
 		if (map->matrix[y][x+1] != '1')
 		{
-			mlx_image_to_window(mlx, img->floor, map->p_col * 32, map->p_row * 32);
+			mlx_image_to_window(mlx, img->floor,
+				map->p_col * 32, map->p_row * 32);
 			map->p_col = x+1;
 			puts("RIGHT>");
-			mlx_image_to_window(mlx, img->main_char, map->p_col * 32, map->p_row * 32);
+			mlx_image_to_window(mlx, img->main_char,
+				map->p_col * 32, map->p_row * 32);
 		}
 	}
 }
