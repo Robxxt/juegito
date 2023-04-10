@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 11:19:54 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 13:07:41 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:27:38 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	get_textrues(t_texture *texture)
 void	get_images(t_image *image, t_texture *texture, mlx_t *mlx)
 {
 	image->main_char = mlx_texture_to_image(mlx, &texture->main_char->texture);
-	image->comestible = mlx_texture_to_image(mlx, &texture->comestible->texture);
+	image->comestible = mlx_texture_to_image(mlx,
+			&texture->comestible->texture);
 	image->exit = mlx_texture_to_image(mlx, &texture->exit->texture);
 	image->wall = mlx_texture_to_image(mlx, &texture->wall->texture);
 	image->floor = mlx_texture_to_image(mlx, &texture->floor->texture);
