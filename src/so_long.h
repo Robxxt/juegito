@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:43:07 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:45:10 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 13:01:17 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ typedef struct s_map
 
 typedef struct s_texture
 {
-	mlx_texture_t	*main_char;
-	mlx_texture_t	*comestible;
-	mlx_texture_t	*exit;
-	mlx_texture_t	*wall;
-	mlx_texture_t	*floor;
+	xpm_t	*main_char;
+	xpm_t	*comestible;
+	xpm_t	*exit;
+	xpm_t	*wall;
+	xpm_t	*floor;
 }	t_texture;
 
 typedef struct s_image

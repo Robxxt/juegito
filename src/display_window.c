@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 23:48:03 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 19:51:40 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 13:04:49 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	free_img(mlx_t *mlx, t_image *img, t_texture *texture)
 	mlx_delete_image(mlx, img->main_char);
 	mlx_delete_image(mlx, img->exit);
 	mlx_delete_image(mlx, img->wall);
-	mlx_delete_texture(texture->comestible);
-	mlx_delete_texture(texture->main_char);
-	mlx_delete_texture(texture->exit);
-	mlx_delete_texture(texture->wall);
+	mlx_delete_xpm42(texture->comestible);
+	mlx_delete_xpm42(texture->main_char);
+	mlx_delete_xpm42(texture->exit);
+	mlx_delete_xpm42(texture->wall);
 }
 
 void	display_map(t_map *map, mlx_t *mlx, t_image *img)
