@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:22:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 19:43:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:08:19 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, t_image *img, int dir)
 	y = map->p_row;
 	if (map->matrix[y][x + dir] != '1')
 	{
+		if (map->matrix[y][x + dir] == 'C')
+		{
+			map->comestible_achieved++;
+			map->matrix[y][x + dir] = '0';
+		}
 		mlx_image_to_window(mlx, img->floor,
 			map->p_col * 32, map->p_row * 32);
 		map->p_col = x + dir;
@@ -30,6 +35,8 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, t_image *img, int dir)
 			puts("<LEFT");
 		else
 			puts("RIGHT>");
+		printf("Comestible achieved= %d\n", map->comestible_achieved);
+		printf("Comestible amount = %d\n", map->comestibles);
 	}
 }
 
@@ -42,6 +49,11 @@ void	move_char_vertically(mlx_t *mlx, t_map *map, t_image *img, int dir)
 	y = map->p_row;
 	if (map->matrix[y + dir][x] != '1')
 	{
+		if (map->matrix[y + dir][x] == 'C')
+		{
+			map->comestible_achieved++;
+			map->matrix[y + dir][x] = '0';
+		}
 		mlx_image_to_window(mlx, img->floor, map->p_col * 32, map->p_row * 32);
 		map->p_row = y + dir;
 		mlx_image_to_window(mlx, img->main_char,

@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:43:07 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 13:01:17 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:01:54 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_map
 {
 	char	**matrix;
+	int		comestible_achieved;
 	int		width;
 	int		height;
 	int		main_chars;

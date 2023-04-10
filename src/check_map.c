@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:32:25 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:35:44 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:03:19 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	set_map_attr_to_zero(t_map *map)
 	map->main_chars = 0;
 	map->comestibles = 0;
 	map->exits = 0;
+	map->comestible_achieved = 0;
 }
 
 void	count_chars(t_map *map, int i, int j)
