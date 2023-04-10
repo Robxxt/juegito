@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:45:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/09 18:46:06 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 15:06:07 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	flood_fill(char **map, int x, int y)
 {
-	if (map[y][x] == '1' || map[y][x] == 'F')
+	if (map[y][x] == '1' || map[y][x] == 'F' || map[y][x] == 'E')
 		return ;
 	map[y][x] = 'F';
 	flood_fill(map, x + 1, y);
@@ -58,7 +58,7 @@ void	verify_valid_path(t_map *map, char *filename)
 		while (map_copy[i][++j])
 		{
 			if (map_copy[i][j] != 'F' && map_copy[i][j] != '1'
-				&& map_copy[i][j] != '\n')
+				&& map_copy[i][j] != '\n' && map_copy[i][j] != 'E')
 				handle_error("Either the comestible or exit is not reachable!");
 		}
 	}
