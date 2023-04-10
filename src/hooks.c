@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:22:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 14:08:19 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/10 14:13:15 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, t_image *img, int dir)
 		{
 			map->comestible_achieved++;
 			map->matrix[y][x + dir] = '0';
+			ft_putstr_fd("GOT COMESTIBLE!", 1);
 		}
 		mlx_image_to_window(mlx, img->floor,
 			map->p_col * 32, map->p_row * 32);
@@ -32,11 +33,9 @@ void	move_char_horizontally(mlx_t *mlx, t_map *map, t_image *img, int dir)
 		mlx_image_to_window(mlx, img->main_char,
 			map->p_col * 32, map->p_row * 32);
 		if (dir == -1)
-			puts("<LEFT");
+			ft_putstr_fd("<LEFT", 1);
 		else
-			puts("RIGHT>");
-		printf("Comestible achieved= %d\n", map->comestible_achieved);
-		printf("Comestible amount = %d\n", map->comestibles);
+			ft_putstr_fd("RIGHT>", 1);
 	}
 }
 
@@ -53,15 +52,16 @@ void	move_char_vertically(mlx_t *mlx, t_map *map, t_image *img, int dir)
 		{
 			map->comestible_achieved++;
 			map->matrix[y + dir][x] = '0';
+			ft_putstr_fd("GOT COMESTIBLE!", 1);
 		}
 		mlx_image_to_window(mlx, img->floor, map->p_col * 32, map->p_row * 32);
 		map->p_row = y + dir;
 		mlx_image_to_window(mlx, img->main_char,
 			map->p_col * 32, map->p_row * 32);
 		if (dir == -1)
-			puts("UP^");
+			ft_putstr_fd("UP^", 1);
 		else
-			puts("DOWN");
+			ft_putstr_fd("DOWN", 1);
 	}
 }
 
