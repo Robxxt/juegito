@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:45:32 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 15:06:07 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/13 15:00:59 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	verify_valid_path(t_map *map, char *filename)
 		while (map_copy[i][++j])
 		{
 			if (map_copy[i][j] != 'F' && map_copy[i][j] != '1'
-				&& map_copy[i][j] != '\n' && map_copy[i][j] != 'E')
+				&& map_copy[i][j] != '\n' && map_copy[i][j] != 'E'
+				&& map_copy[i][j] != '0')
 				handle_error("Either the comestible or exit is not reachable!");
 		}
 	}
