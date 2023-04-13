@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 11:19:54 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 14:27:38 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/13 13:53:18 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	get_textrues(t_texture *texture)
 {
-	texture->main_char = mlx_load_xpm42("./assets/main.xpm42");
-	texture->comestible = mlx_load_xpm42("./assets/comestible_01.xpm42");
-	texture->floor = mlx_load_xpm42("./assets/floor.xpm42");
-	texture->wall = mlx_load_xpm42("./assets/wall.xpm42");
-	texture->exit = mlx_load_xpm42("./assets/exit.xpm42");
+	texture->main_char = mlx_load_xpm42("./textures/main.xpm42");
+	texture->comestible = mlx_load_xpm42("./textures/comestible_01.xpm42");
+	texture->floor = mlx_load_xpm42("./textures/floor.xpm42");
+	texture->wall = mlx_load_xpm42("./textures/wall.xpm42");
+	texture->exit = mlx_load_xpm42("./textures/exit.xpm42");
 	if (!texture->exit || !texture->main_char || !texture->comestible
 		|| !texture->floor || !texture->wall)
 	{
