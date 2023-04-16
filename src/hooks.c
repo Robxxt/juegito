@@ -6,7 +6,7 @@
 /*   By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 18:22:43 by rdragan           #+#    #+#             */
-/*   Updated: 2023/04/10 14:46:36 by rdragan          ###   ########.fr       */
+/*   Updated: 2023/04/16 20:43:43 by rdragan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	handle_char(t_map *map, int x, int y)
 	{
 		map->comestible_achieved++;
 		map->matrix[y][x] = '0';
-		ft_putstr_fd("GOT COMESTIBLE!\n", 1);
+		ft_putstr_fd("COLLECTED COMESTIBLES: ", 1);
+		ft_putnbr_fd(map->comestible_achieved, 1);
+		ft_putchar_fd('\n', 1);
 		return (1);
 	}
 	if (map->matrix[y][x] == 'E')
