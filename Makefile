@@ -6,7 +6,7 @@
 #    By: rdragan <rdragan@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/16 20:44:24 by rdragan           #+#    #+#              #
-#    Updated: 2023/04/16 20:44:43 by rdragan          ###   ########.fr        #
+#    Updated: 2023/05/26 15:01:41 by rdragan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC			:=	src/so_long.c\
 OBJ			:= $(SRC:.c=.o)
 CFLAGS		:= -Wall -Werror -Wextra
 GLFWFLAGS	:= -framework Cocoa -framework OpenGL -framework IOKit
-MLX_HEADER	:= -Iinclude -lglfw -L"/Users/rdragan/homebrew/Cellar/glfw/3.3.8/lib/"
+MLX_HEADER	:= -Iinclude -lglfw -L"$(HOME)/homebrew/Cellar/glfw/3.3.8/lib/"
 
 all: $(MLXLIB) $(NAME) 
 
